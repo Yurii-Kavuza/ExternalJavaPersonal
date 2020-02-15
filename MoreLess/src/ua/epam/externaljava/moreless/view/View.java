@@ -11,13 +11,14 @@ import java.util.ResourceBundle;
  */
 public class View {
 
+
     // Resource Bundle Installation's
-    static String MESSAGES_BUNDLE_NAME = "messages";
+    static String MESSAGES_BUNDLE_NAME = "property.messages";
     public static final ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
                     //new Locale("ua"));  // Ukrainian
-                    new Locale("en"));        // English
+                    new Locale("en", "US"));        // English
 
     // Text's constants
     public static final String EQUAL_SIGN = "=";
