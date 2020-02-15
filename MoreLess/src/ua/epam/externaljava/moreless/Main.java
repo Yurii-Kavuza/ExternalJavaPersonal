@@ -1,4 +1,8 @@
-package ua.kpi.tef;
+package ua.epam.externaljava.moreless;
+
+import ua.epam.externaljava.moreless.controller.Controller;
+import ua.epam.externaljava.moreless.model.Model;
+import ua.epam.externaljava.moreless.view.View;
 
 public class Main {
 

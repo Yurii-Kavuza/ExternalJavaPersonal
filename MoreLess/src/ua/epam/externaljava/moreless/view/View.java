@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 /**
  * Created by User on 15.04.2016.
+ * Modified by Yurii Kavuza 15.02.2020
  */
 public class View {
 
@@ -19,8 +20,8 @@ public class View {
                     new Locale("en"));        // English
 
     // Text's constants
-    public static final String EQUAL_SING = "=";
-    public static final String SPACE_SING = " ";
+    public static final String EQUAL_SIGN = "=";
+    public static final String SPACE_SIGN = " ";
     public static final String OPENS_SQUARE_BRACKET = "[";
     public static final String CLOSING_SQUARE_BRACKET = "]";
 
@@ -53,10 +54,10 @@ public class View {
 
     public String getInputMessage(int minBarrier, int maxBarrier) {
         String str = concatenationString( bundle.getString( INPUT_INT_DATA_KEY ),
-                SPACE_SING, OPENS_SQUARE_BRACKET,
-                String.valueOf(minBarrier), SPACE_SING,
+                SPACE_SIGN, OPENS_SQUARE_BRACKET,
+                String.valueOf(minBarrier), SPACE_SIGN,
                 String.valueOf(maxBarrier), CLOSING_SQUARE_BRACKET,
-                SPACE_SING, EQUAL_SING);
+                SPACE_SIGN, EQUAL_SIGN);
         return str;
     }
     public void printWrongRangeInput(Model model) {
