@@ -49,6 +49,14 @@ public class Model{
         return maxBarrier;
     }
 
+    public int getPrimaryMinBarrier() {
+        return PRIMARY_MIN_BARRIER;
+    }
+
+    public int getPrimaryMaxBarrier() {
+        return PRIMARY_MAX_BARRIER;
+    }
+
     public List<Integer> getYourWay() {
         return yourWay;
     }

@@ -21,6 +21,7 @@ public class Controller {
             chooseTypeOfGame();
             processUser();
             endGame();
+            model.setPrimaryBarrier(model.getPrimaryMinBarrier(),model.getPrimaryMaxBarrier());
         }
 
     }
