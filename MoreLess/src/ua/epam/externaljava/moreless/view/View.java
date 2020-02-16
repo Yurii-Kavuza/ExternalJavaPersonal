@@ -15,8 +15,8 @@ public class View {
     public static ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
-                    new Locale("uk", "UA"));  // Ukrainian
-                    //new Locale("en", "US"));        // English
+                    //new Locale("uk", "UA"));  // Ukrainian
+                    new Locale("en", "US"));        // English
 
     public void setLocale(Locale locale) {
         bundle =
@@ -30,7 +30,9 @@ public class View {
     public static final String OPENS_SQUARE_BRACKET = "[";
     public static final String CLOSING_SQUARE_BRACKET = "]";
 
-    public static final String CHOOSE_LANG ="choose.language" ;
+    public static final String CHOOSE_LANG ="choose.language";
+    public static final String CHOOSE_YOUR_GAME ="choose.your.game";
+    public static final String INPUT_INT_VALUE = "input.int.value";
     public static final String INPUT_INT_DATA_KEY = "input.int.data";
     public static final String WRONG_INPUT_INT_DATA = "input.wrong.data";
     public static final String WRONG_RANGE_DATA = "input.wrong.range";

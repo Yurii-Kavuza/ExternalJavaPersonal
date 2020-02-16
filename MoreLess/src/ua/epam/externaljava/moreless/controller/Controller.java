@@ -1,9 +1,7 @@
 package ua.epam.externaljava.moreless.controller;
+
 import ua.epam.externaljava.moreless.model.Model;
 import ua.epam.externaljava.moreless.view.View;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -19,29 +17,104 @@ public class Controller {
     //The Workflow for console view
     public void startProcess(){
         chooseLanguage();
+
+        chooseTypeOfGame();
         processUser();
     }
-    
+
+    //Choose your language. Check the right value.
     public void chooseLanguage(){
         Scanner scanner = new Scanner(System.in);
+        int numOfLang = 0;
+        Locale locale;
 
         view.printMessage(View.bundle.getString(View.CHOOSE_LANG));
-        int numOfLang;
 
-        if (scanner.hasNextInt())
+        while (true){
+            // check int - input
+            while (!scanner.hasNextInt()) {
+                view.printMessage(View.bundle.getString(View.CHOOSE_LANG));
+                scanner.next();
+            }
+
+            // check the number of language
             numOfLang = scanner.nextInt();
-        else numOfLang = 1;
-
-        Locale locale = numOfLang == 2 ?
-                new Locale("en", "EN"):
-                new Locale("uk", "UA");
-
-
-        view.setLocale(locale);
+            if (numOfLang==1) {
+                locale = new Locale("uk", "UA");
+                view.setLocale(locale);
+                break;
+            }else if (numOfLang==2) {
+                locale = new Locale("en", "EN");
+                view.setLocale(locale);
+                break;
+            }
+        }
     }
 
+    //Choose your type of game. Check the right value.
     public void chooseTypeOfGame(){
         Scanner scanner = new Scanner(System.in);
+        view.printMessage(View.bundle.getString(View.CHOOSE_YOUR_GAME));
+        int typeOfgame=0;
+
+        while (true){
+            // check int - input
+            while (!scanner.hasNextInt()) {
+                view.printMessage(View.bundle.getString(View.INPUT_INT_VALUE));
+                scanner.next();
+            }
+
+            // check the type of game
+            typeOfgame = scanner.nextInt();
+            if (typeOfgame==1) {
+                break;
+            }else if (typeOfgame==2) {
+                setRange(scanner);
+                break;
+            }
+        }
+    }
+
+    //Set custom range for your game
+    public void setRange(Scanner sc){
+        int first;
+        int second;
+        int temp;
+
+        view.printMessage(View.bundle.getString(View.INPUT_INT_VALUE));
+
+        while (true){
+            // check int - input
+            while (!sc.hasNextInt()) {
+                view.printMessage(View.bundle.getString(View.INPUT_INT_VALUE));
+                sc.next();
+            }
+            //set the first value
+            first=sc.nextInt();
+            break;
+        }
+
+        view.printMessage(View.bundle.getString(View.INPUT_INT_VALUE));
+        while (true){
+            // check the next int and match with first value
+            while (!sc.hasNextInt()) {
+                view.printMessage(View.bundle.getString(View.INPUT_INT_VALUE));
+                sc.next();
+            }
+            temp=sc.nextInt();
+            if((temp == first - 1) || (temp == first) || (temp == first + 1)){
+                continue;
+            } else {
+                second = temp;
+                break;
+            }
+        }
+
+        if(first>second){
+            model.setPrimaryBarrier(second,first);
+        }else{
+            model.setPrimaryBarrier(first,second);
+        }
     }
 
     // The Work method
@@ -60,7 +133,6 @@ public class Controller {
 }
 
     // The Utility methods
-
     private int inputIntValueWithScanner(Scanner sc) {
         int res=0;
         view.printMessage(view.getInputMessage
@@ -75,7 +147,7 @@ public class Controller {
             // check value in diapason
             if ((res = sc.nextInt()) <= model.getMinBarrier() ||
                     res >= model.getMaxBarrier()) {
-                view.printWrongRangeInput(model);
+                view.printWrongIntInput(model);
                 continue ;
             }
             break;
