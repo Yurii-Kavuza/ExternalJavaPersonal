@@ -1,4 +1,4 @@
-package ua.epam.externaljava.moreless.view;
+package ua.epam.externaljava.moreless.model;
 
 /**
  * Created by User on 15.04.2016.

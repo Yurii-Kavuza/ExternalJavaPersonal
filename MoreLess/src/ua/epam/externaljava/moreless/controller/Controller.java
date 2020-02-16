@@ -1,13 +1,12 @@
 package ua.epam.externaljava.moreless.controller;
 import ua.epam.externaljava.moreless.model.Model;
-import ua.epam.externaljava.moreless.view.GlobalConstants;
 import ua.epam.externaljava.moreless.view.View;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Locale;
 import java.util.Scanner;
 
-/**
- * Created by User on 15.04.2016.
- */
 public class Controller {
     private Model model;
     private View view;
@@ -17,14 +16,42 @@ public class Controller {
         this.view = view;
     }
 
+    //The Workflow for console view
+    public void startProcess(){
+        chooseLanguage();
+        processUser();
+    }
+    
+    public void chooseLanguage(){
+        Scanner scanner = new Scanner(System.in);
+
+        view.printMessage(View.bundle.getString(View.CHOOSE_LANG));
+        int numOfLang;
+
+        if (scanner.hasNextInt())
+            numOfLang = scanner.nextInt();
+        else numOfLang = 1;
+
+        Locale locale = numOfLang == 2 ?
+                new Locale("en", "EN"):
+                new Locale("uk", "UA");
+
+
+        view.setLocale(locale);
+    }
+
+    public void chooseTypeOfGame(){
+        Scanner scanner = new Scanner(System.in);
+    }
+
     // The Work method
     public void processUser(){
         Scanner sc = new Scanner(System.in);
 
-        model.setPrimaryBarrier(GlobalConstants.PRIMARY_MIN_BARRIER,
-                                GlobalConstants.PRIMARY_MAX_BARRIER);
+        model.setPrimaryBarrier(model.getMinBarrier(),
+                                model.getMaxBarrier());
         model.setSecretValue();
-        System.out.println(model.getSecretValue());
+        //System.out.println(model.getSecretValue());
 
         while (!model.checkValue(inputIntValueWithScanner(sc))){}
 
@@ -34,11 +61,6 @@ public class Controller {
 
     // The Utility methods
 
-    /**
-     *
-     * @param sc
-     * @return
-     */
     private int inputIntValueWithScanner(Scanner sc) {
         int res=0;
         view.printMessage(view.getInputMessage

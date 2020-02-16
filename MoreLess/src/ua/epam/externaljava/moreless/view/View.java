@@ -10,15 +10,19 @@ import java.util.ResourceBundle;
  * Modified by Yurii Kavuza 15.02.2020
  */
 public class View {
-
-
     // Resource Bundle Installation's
     static String MESSAGES_BUNDLE_NAME = "property.messages";
-    public static final ResourceBundle bundle =
+    public static ResourceBundle bundle =
             ResourceBundle.getBundle(
                     MESSAGES_BUNDLE_NAME,
-                    //new Locale("ua"));  // Ukrainian
-                    new Locale("en", "US"));        // English
+                    new Locale("uk", "UA"));  // Ukrainian
+                    //new Locale("en", "US"));        // English
+
+    public void setLocale(Locale locale) {
+        bundle =
+                ResourceBundle.getBundle(
+                        MESSAGES_BUNDLE_NAME, locale);
+    }
 
     // Text's constants
     public static final String EQUAL_SIGN = "=";
@@ -26,11 +30,13 @@ public class View {
     public static final String OPENS_SQUARE_BRACKET = "[";
     public static final String CLOSING_SQUARE_BRACKET = "]";
 
+    public static final String CHOOSE_LANG ="choose.language" ;
     public static final String INPUT_INT_DATA_KEY = "input.int.data";
     public static final String WRONG_INPUT_INT_DATA = "input.wrong.data";
     public static final String WRONG_RANGE_DATA = "input.wrong.range";
     public static final String CONGRATULATION = "input.congratulation";
     public static final String YOUR_WAY = "input.way";
+    public static final String YOUR_WAY_QUANTITY = "input.way.quantity";
 
     /**
      *
@@ -75,6 +81,8 @@ public class View {
     }
     public void printWay(Model model) {
         printMessage(bundle.getString(YOUR_WAY) +
-                String.valueOf(model.getYourWay()));
+                String.valueOf(model.getYourWay())+
+                SPACE_SIGN + bundle.getString(YOUR_WAY_QUANTITY) +
+                String.valueOf(model.getYourWay().size()));
     }
 }

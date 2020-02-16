@@ -12,7 +12,7 @@ public class Main {
         View view = new View();
         Controller controller = new Controller(model, view);
         // Run
-        controller.processUser();
+        controller.startProcess();
     }
 
 }
