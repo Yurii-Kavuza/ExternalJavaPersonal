@@ -6,7 +6,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
- * Created by User on 15.04.2016.
  * Modified by Yurii Kavuza 15.02.2020
  */
 public class View {
@@ -39,6 +38,7 @@ public class View {
     public static final String CONGRATULATION = "input.congratulation";
     public static final String YOUR_WAY = "input.way";
     public static final String YOUR_WAY_QUANTITY = "input.way.quantity";
+    public static final String END_GAME = "end.game";
 
     /**
      *

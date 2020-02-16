@@ -17,9 +17,12 @@ public class Controller {
     //The Workflow for console view
     public void startProcess(){
         chooseLanguage();
+        while (true){
+            chooseTypeOfGame();
+            processUser();
+            endGame();
+        }
 
-        chooseTypeOfGame();
-        processUser();
     }
 
     //Choose your language. Check the right value.
@@ -109,7 +112,6 @@ public class Controller {
                 break;
             }
         }
-
         if(first>second){
             model.setPrimaryBarrier(second,first);
         }else{
@@ -130,7 +132,24 @@ public class Controller {
 
         view.printCongratulation(model);
         view.printWay(model);
-}
+    }
+
+
+    //End game
+    public void endGame(){
+        Scanner scanner = new Scanner(System.in);
+        view.printMessage(View.bundle.getString(View.END_GAME));
+
+        if(scanner.hasNextInt()){
+            if(scanner.nextInt()!=1){
+                System.exit(0);
+            }else{
+                model.setYourWay();
+            }
+        }else {
+            System.exit(0);
+        }
+    }
 
     // The Utility methods
     private int inputIntValueWithScanner(Scanner sc) {

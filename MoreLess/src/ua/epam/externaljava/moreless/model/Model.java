@@ -52,4 +52,8 @@ public class Model{
     public List<Integer> getYourWay() {
         return yourWay;
     }
+
+    public void setYourWay() {
+        yourWay.clear();
+    }
 }
