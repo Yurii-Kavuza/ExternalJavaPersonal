@@ -2,6 +2,9 @@ package ua.epam.externaljava.moreless.controller;
 
 import ua.epam.externaljava.moreless.model.Model;
 import ua.epam.externaljava.moreless.view.View;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -53,6 +56,7 @@ public class Controller {
                 break;
             }
         }
+        //scanner.close();
     }
 
     //Choose your type of game. Check the right value.
