@@ -1,5 +1,7 @@
 package ua.epam.externalJava.weatherStation.connection;
 
+import org.apache.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,6 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class Connection {
+    private final static Logger logger = Logger.getLogger(Connection.class);
     private static String data;
     private static String API_KEY = "71b55d6a9dc5f6a5e4d284c14b97e5a0";
     private static String LOCATION = "Kyiv";
@@ -39,7 +42,7 @@ public class Connection {
             bufferedReader.close();
             tempData = result.toString();
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            logger.info(e);
         }
         return tempData;
     }
