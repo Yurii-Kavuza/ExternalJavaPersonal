@@ -1,30 +1,25 @@
 package ua.epam.externalJava.weatherStation.observer;
 
-import ua.epam.externalJava.weatherStation.subject.Subject;
+import ua.epam.externalJava.weatherStation.subject.WeatherData;
 
 public class CurrentConditionsDisplay implements DisplayElement, Observer {
-    private float temperature;
-    private float humidity;
-    private float pressure;
-    private Subject weatherData;
+    private WeatherData weatherData;
 
-    public CurrentConditionsDisplay(Subject weatherData) {
+    public CurrentConditionsDisplay(WeatherData weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
-        this.temperature = temperature;
-        this.humidity = humidity;
-        this.pressure = pressure;
+    public void update() {
         display();
     }
 
     @Override
     public void display() {
-        System.out.println("Current conditions: temperature is " + temperature
-        + " C degrees and " + humidity + "% humidity and pressure is "
-        + pressure + " mm Hg");
+        System.out.println("Current conditions: temperature is " +
+                weatherData.getWeatherCondition().getTemperature() + " C degrees and " +
+                weatherData.getWeatherCondition().getHumidity() + "% humidity and pressure is " +
+                weatherData.getWeatherCondition().getPressure() + " mm Hg");
     }
 }
