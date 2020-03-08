@@ -18,6 +18,7 @@ public class ParserJSON {
                 new TypeToken<HashMap<String,Object>>() {}.getType());
         return map;
     }
+
     public static float getTempCurrent(){
         return Float.parseFloat(mainMap.get("temp").toString());
     }
@@ -41,5 +42,4 @@ public class ParserJSON {
     public static float getPressure(){
         return Float.parseFloat(mainMap.get("pressure").toString())*0.75006f;
     }
-
 }

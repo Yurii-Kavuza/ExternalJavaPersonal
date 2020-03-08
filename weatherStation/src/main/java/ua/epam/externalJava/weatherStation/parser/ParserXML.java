@@ -1,52 +1,42 @@
 package ua.epam.externalJava.weatherStation.parser;
 
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import ua.epam.externalJava.weatherStation.connection.Connection;
 
 
 public class ParserXML {
     private static String dataXML = Connection.getDataXML();
 
-//    DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-//    Document dDoc = builder.parse(dataXML);
-//    dDoc.getDocumentElement().normalize();
+    private static Document docXml = Jsoup.parse(dataXML);
 
-//    XPath xPath = XPathFactory.newInstance().newXPath();
-//    NodeList nodes = (NodeList) xPath.evaluate("//xml/ep/source/@type", dDoc, XPathConstants.NODESET);
-//    for (int i = 0; i < nodes.getLength(); i++){
-//        Node node = nodes.item(i);
-//        System.out.println(node.getTextContent());
+    Elements temp = docXml.getElementsByTag("temperature");
 
+    private static float getValue(String tag, String attr){
+        Elements element = docXml.getElementsByTag(tag);
+        return Float.parseFloat(element.attr(attr));
+    }
 
+    public static float getTempCurrent(){
+        return getValue("temperature", "value");
+    }
 
+    public static float getTempMin(){
+        return getValue("temperature", "min");
+    }
 
+    public static float getTempMax(){
+        return getValue("temperature", "max");
+    }
 
+    public static float getHumidity(){
+        return getValue("humidity", "value");
+    }
 
-//    private static Document docXml = Jsoup.parse(dataXML, "", Parser.xmlParser());
-//
-//    public static float getTempCurrent(){
-//        return Float.parseFloat(docXml.select("temp").text());
-//    }
-//
-//    public static float getTempFeelsLike(){
-//        return Float.parseFloat(docXml.select("feels_like").text());
-//    }
-//
-//    public static float getTempMin(){
-//        return Float.parseFloat(docXml.select("temp_min").text());
-//    }
-//
-//    public static float getTempMax(){
-//        return Float.parseFloat(docXml.select("temp_max").text());
-//    }
-//
-//    public static float getHumidity(){
-//        return Float.parseFloat(mainMap.get("humidity").toString());
-//    }
-//
-//    public static float getPressure(){
-//        return Float.parseFloat(mainMap.get("pressure").toString())*0.75006f;
-//    }
+    public static float getPressure(){
+        return getValue("pressure", "value")*0.75006f;
+    }
 
 }
 

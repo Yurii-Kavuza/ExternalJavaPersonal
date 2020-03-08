@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class WeatherData implements Subject {
     private final static Logger logger = Logger.getLogger(WeatherData.class);
     private String location = Connection.LOCATION;
-    private String sourcePath = "resources/savedData/weatherData.csv";
+    private String sourcePath = "src/main/resources/savedData/weatherData.csv";
 
     private ArrayList<Observer> observers;
     private  WeatherCondition weatherCondition;
