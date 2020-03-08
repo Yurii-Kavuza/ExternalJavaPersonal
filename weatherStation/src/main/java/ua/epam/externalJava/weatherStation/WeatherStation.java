@@ -12,7 +12,6 @@ import java.io.IOException;
 public class WeatherStation {
     public static void main(String[] args) throws IOException {
         WeatherData weatherData = new WeatherData();
-
         WeatherCondition weatherCondition = new WeatherCondition.Builder().
                 temperature(ParserJSON.getTempCurrent()).
                 humidity(ParserJSON.getHumidity()).

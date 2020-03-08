@@ -17,9 +17,9 @@ public class StatisticDisplay implements  DisplayElement, Observer{
 
     @Override
     public void update() {
-        listTemperature = weatherData.getListTemperature();
-        listHumidity = weatherData.getListHumidity();
-        listPressure = weatherData.getListPressure();
+        listTemperature = (ArrayList<Float>) weatherData.getListTemperature().clone();
+        listHumidity = (ArrayList<Float>) weatherData.getListHumidity().clone();
+        listPressure = (ArrayList<Float>) weatherData.getListPressure().clone();
       display();
     }
 

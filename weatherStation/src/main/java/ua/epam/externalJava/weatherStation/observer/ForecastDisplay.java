@@ -2,6 +2,7 @@ package ua.epam.externalJava.weatherStation.observer;
 
 import ua.epam.externalJava.weatherStation.subject.WeatherData;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ForecastDisplay implements  DisplayElement, Observer{
     private WeatherData weatherData;
@@ -27,7 +28,7 @@ public class ForecastDisplay implements  DisplayElement, Observer{
 
     private String makePrediction(){
         StringBuilder prediction = new StringBuilder();
-        if(checkEnoughData()){
+        if(checkEnoughData()==true){
             prediction.append(getTemperaturePrediction()).append("\n");
             prediction.append(getHumidityPrediction());
         }else {
@@ -52,12 +53,12 @@ public class ForecastDisplay implements  DisplayElement, Observer{
         return temperaturePrediction;
     }
 
-    private boolean checkRiseTemperature(){
+    public boolean checkRiseTemperature(){
         int length = listTemperature.size();
         return listTemperature.get(length - 2) < listTemperature.get(length - 1);
     }
 
-    private boolean checkFallTemperature(){
+    public boolean checkFallTemperature(){
         int length = listTemperature.size();
         return listTemperature.get(length - 2) > listTemperature.get(length - 1);
     }
@@ -73,7 +74,7 @@ public class ForecastDisplay implements  DisplayElement, Observer{
             if(isLowTemperature()){
                 humidityPrediction = "Pay attention! It may starting to snow and it may by slippery outside.";
             }else {
-                humidityPrediction = "Pay attention! It may starting to rain. Do not forget your umbrella";
+                humidityPrediction = "Pay attention! It may starting to rain. Do not forget your umbrella.";
             }
         }else{
             humidityPrediction = "The forecast is for dry, cloudy weather with no precipitation expected.";
@@ -84,5 +85,9 @@ public class ForecastDisplay implements  DisplayElement, Observer{
     private boolean checkHighHumidity(){
         int length = listHumidity.size();
         return listHumidity.get(length-1)>84;
+    }
+
+    public String listValues(){
+        return Arrays.asList(listTemperature).toString();
     }
 }
