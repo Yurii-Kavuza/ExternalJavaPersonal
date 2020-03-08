@@ -1,14 +1,15 @@
 package ua.epam.externalJava.weatherStation.subject;
 
 import org.apache.log4j.Logger;
+import ua.epam.externalJava.weatherStation.connection.Connection;
 import ua.epam.externalJava.weatherStation.observer.Observer;
-
 import java.io.*;
 import java.util.ArrayList;
 
 public class WeatherData implements Subject {
-    private String sourcePath = "resources/savedData/weatherData.csv";
     private final static Logger logger = Logger.getLogger(WeatherData.class);
+    private String location = Connection.LOCATION;
+    private String sourcePath = "resources/savedData/weatherData.csv";
 
     private ArrayList<Observer> observers;
     private  WeatherCondition weatherCondition;
@@ -96,5 +97,9 @@ public class WeatherData implements Subject {
 
     public ArrayList<Float> getListPressure() {
         return listPressure;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }

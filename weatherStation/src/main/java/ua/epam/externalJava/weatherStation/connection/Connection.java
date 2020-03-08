@@ -12,7 +12,7 @@ public class Connection {
     private final static Logger logger = Logger.getLogger(Connection.class);
     private static String data;
     private static String API_KEY = "71b55d6a9dc5f6a5e4d284c14b97e5a0";
-    private static String LOCATION = "Kyiv";
+    public static String LOCATION = "Kyiv";
     private static StringBuilder urlString= new StringBuilder("http://api.openweathermap.org/data/2.5/weather?q=")
             .append(LOCATION).append("&appid=").append(API_KEY).append("&units=metric");
     private static String urlStringJSON = urlString.toString();

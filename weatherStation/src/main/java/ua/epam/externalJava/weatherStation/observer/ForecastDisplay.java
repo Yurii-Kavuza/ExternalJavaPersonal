@@ -14,15 +14,15 @@ public class ForecastDisplay implements  DisplayElement, Observer{
     }
 
     @Override
-    public void display() {
-        System.out.println(makePrediction());
-    }
-
-    @Override
     public void update() {
         listTemperature = weatherData.getListTemperature();
         listHumidity = weatherData.getListHumidity();
         display();
+    }
+
+    @Override
+    public void display() {
+        System.out.println(makePrediction());
     }
 
     private String makePrediction(){

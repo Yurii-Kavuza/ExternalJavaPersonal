@@ -30,6 +30,13 @@ public class StatisticDisplay implements  DisplayElement, Observer{
         System.out.println(result(listPressure,"pressure"));
     }
 
+    private String result(ArrayList<Float> list, String value){
+        StringBuilder builder= new StringBuilder("Avg/Max/Min ").append(value).
+                append(" is ").append(getValueAvg(list)).append("/").append(getValueMax(list)).
+                append("/").append(getValueMin(list)).append("/");
+        return builder.toString();
+    }
+
     private float getValueAvg(ArrayList<Float> list){
         float total=0;
         for (int i = 0; i < list.size(); i++) {
@@ -46,12 +53,5 @@ public class StatisticDisplay implements  DisplayElement, Observer{
     private float getValueMax(ArrayList<Float> list){
         Collections.sort(list);
         return list.get(list.size()-1);
-    }
-
-    private String result(ArrayList<Float> list, String value){
-        StringBuilder builder= new StringBuilder("Avg/Max/Min ").append(value).
-                append(" is ").append(getValueAvg(list)).append("/").append(getValueMax(list)).
-                append("/").append(getValueMin(list)).append("/");
-        return builder.toString();
     }
 }
