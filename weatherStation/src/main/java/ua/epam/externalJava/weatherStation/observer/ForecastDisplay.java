@@ -71,9 +71,9 @@ public class ForecastDisplay implements  DisplayElement, Observer{
         String humidityPrediction = "";
         if(checkHighHumidity()){
             if(isLowTemperature()){
-                humidityPrediction = "Pay attention. It may starting to snow and it may by slippery outside.";
+                humidityPrediction = "Pay attention! It may starting to snow and it may by slippery outside.";
             }else {
-                humidityPrediction = "Pay attention and do not forget your umbrella. It may starting to rain.";
+                humidityPrediction = "Pay attention! It may starting to rain. Do not forget your umbrella";
             }
         }else{
             humidityPrediction = "The forecast is for dry, cloudy weather with no precipitation expected.";
