@@ -17,9 +17,13 @@ public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
     @Override
     public void display() {
-        System.out.println("Current conditions: temperature is " +
-                weatherData.getWeatherCondition().getTemperature() + " C degrees and " +
-                weatherData.getWeatherCondition().getHumidity() + "% humidity and pressure is " +
-                weatherData.getWeatherCondition().getPressure() + " mm Hg");
+        StringBuilder builder=new StringBuilder("\n");
+        System.out.println(builder.append("Current conditions: temperature is ").
+                        append(weatherData.getWeatherCondition().getTemperature()).
+                        append(" C degrees and ").
+                        append(weatherData.getWeatherCondition().getHumidity()).
+                        append("% humidity and pressure is ").
+                        append(weatherData.getWeatherCondition().getPressure()).
+                        append(" mm Hg").toString());
     }
 }

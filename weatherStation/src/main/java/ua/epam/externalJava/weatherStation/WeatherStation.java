@@ -1,6 +1,7 @@
 package ua.epam.externalJava.weatherStation;
 
 import ua.epam.externalJava.weatherStation.observer.CurrentConditionsDisplay;
+import ua.epam.externalJava.weatherStation.observer.ForecastDisplay;
 import ua.epam.externalJava.weatherStation.observer.StatisticDisplay;
 import ua.epam.externalJava.weatherStation.parser.ParserJSON;
 import ua.epam.externalJava.weatherStation.subject.WeatherCondition;
@@ -21,7 +22,7 @@ public class WeatherStation {
         CurrentConditionsDisplay currentConditionsDisplay =
                 new CurrentConditionsDisplay(weatherData);
         StatisticDisplay statisticDisplay = new StatisticDisplay(weatherData);
-
+        ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
 
         weatherData.setMeasurements(weatherCondition);
     }

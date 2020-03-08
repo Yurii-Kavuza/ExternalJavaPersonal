@@ -1,7 +1,6 @@
 package ua.epam.externalJava.weatherStation.observer;
 
 import ua.epam.externalJava.weatherStation.subject.WeatherData;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
