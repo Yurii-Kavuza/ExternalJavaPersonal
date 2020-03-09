@@ -1,0 +1,11 @@
+WeatherCondition weatherCondition = new WeatherCondition.Builder().
+                temperature(ParserJSON.getTempCurrent()).
+                humidity(ParserJSON.getHumidity()).
+                pressure(ParserJSON.getPressure()).build();
+
+WeatherCondition weatherCondition = new WeatherCondition.Builder().
+                temperature(ParserJSON2.getTempCurrent()).
+                humidity(ParserJSON2.getHumidity()).
+                pressure(ParserJSON2.getPressure()).build();
+
+        
