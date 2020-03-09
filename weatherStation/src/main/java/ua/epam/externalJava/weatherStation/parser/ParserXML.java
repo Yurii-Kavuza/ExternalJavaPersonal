@@ -5,18 +5,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import ua.epam.externalJava.weatherStation.connection.Connection;
 
-
 public class ParserXML {
     private static String dataXML = Connection.getDataXML();
-
     private static Document docXml = Jsoup.parse(dataXML);
-
     Elements temp = docXml.getElementsByTag("temperature");
-
-    private static float getValue(String tag, String attr){
-        Elements element = docXml.getElementsByTag(tag);
-        return Float.parseFloat(element.attr(attr));
-    }
 
     public static float getTempCurrent(){
         return getValue("temperature", "value");
@@ -38,5 +30,8 @@ public class ParserXML {
         return getValue("pressure", "value")*0.75006f;
     }
 
+    private static float getValue(String tag, String attr){
+        Elements element = docXml.getElementsByTag(tag);
+        return Float.parseFloat(element.attr(attr));
+    }
 }
-

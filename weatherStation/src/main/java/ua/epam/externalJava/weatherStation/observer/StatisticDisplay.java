@@ -45,13 +45,13 @@ public class StatisticDisplay implements  DisplayElement, Observer{
         return  total/list.size();
     }
 
-    private float getValueMin(ArrayList<Float> list){
-        Collections.sort(list);
-        return list.get(0);
-    }
-
     private float getValueMax(ArrayList<Float> list){
         Collections.sort(list);
         return list.get(list.size()-1);
+    }
+
+    private float getValueMin(ArrayList<Float> list){
+        Collections.sort(list);
+        return list.get(0);
     }
 }

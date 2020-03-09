@@ -14,30 +14,6 @@ public class WeatherCondition {
         pressure = builder.pressure;
     }
 
-    public float getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
-
-    public float getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(float humidity) {
-        this.humidity = humidity;
-    }
-
-    public float getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(float pressure) {
-        this.pressure = pressure;
-    }
-
     public static class Builder{
         private float temperature;
         private float humidity;
@@ -61,5 +37,29 @@ public class WeatherCondition {
         public WeatherCondition build(){
             return new WeatherCondition(this);
         }
+    }
+
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(float temperature) {
+        this.temperature = temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(float humidity) {
+        this.humidity = humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
+    }
+
+    public void setPressure(float pressure) {
+        this.pressure = pressure;
     }
 }

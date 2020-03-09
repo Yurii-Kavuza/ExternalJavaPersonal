@@ -1,8 +1,8 @@
 package ua.epam.externalJava.weatherStation.observer;
 
 import ua.epam.externalJava.weatherStation.subject.WeatherData;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ForecastDisplay implements  DisplayElement, Observer{
     private WeatherData weatherData;
@@ -28,7 +28,7 @@ public class ForecastDisplay implements  DisplayElement, Observer{
 
     private String makePrediction(){
         StringBuilder prediction = new StringBuilder();
-        if(checkEnoughData()==true){
+        if(checkEnoughData()){
             prediction.append(getTemperaturePrediction()).append("\n");
             prediction.append(getHumidityPrediction());
         }else {
@@ -63,11 +63,6 @@ public class ForecastDisplay implements  DisplayElement, Observer{
         return listTemperature.get(length - 2) > listTemperature.get(length - 1);
     }
 
-    private boolean isLowTemperature(){
-        int length = listTemperature.size();
-        return checkFallTemperature()&&(listTemperature.get(length-1)<5);
-    }
-
     private String getHumidityPrediction(){
         String humidityPrediction = "";
         if(checkHighHumidity()){
@@ -87,7 +82,8 @@ public class ForecastDisplay implements  DisplayElement, Observer{
         return listHumidity.get(length-1)>84;
     }
 
-    public String listValues(){
-        return Arrays.asList(listTemperature).toString();
+    private boolean isLowTemperature(){
+        int length = listTemperature.size();
+        return checkFallTemperature()&&(listTemperature.get(length-1)<5);
     }
 }

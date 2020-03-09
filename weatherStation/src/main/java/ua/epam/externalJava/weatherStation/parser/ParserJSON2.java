@@ -7,10 +7,6 @@ public class ParserJSON2 {
     private static String json = Connection.getDataJSON();
     private static JSONObject jsonObject = new JSONObject(json);
 
-    private static float getValue(String value){
-        return jsonObject.getJSONObject("main").getFloat(value);
-    }
-
     public static float getTempCurrent(){
         return getValue("temp");
     }
@@ -33,5 +29,9 @@ public class ParserJSON2 {
 
     public static float getPressure(){
         return getValue("pressure")*0.75006f;
+    }
+
+    private static float getValue(String value){
+        return jsonObject.getJSONObject("main").getFloat(value);
     }
 }
