@@ -10,7 +10,7 @@ import java.net.URLConnection;
 public class Connection {
     private final static Logger logger = Logger.getLogger(Connection.class);
     private static String data;
-    private static StringBuilder urlString= new StringBuilder("http://shakespeare.mit.edu/Poetry/sonnet.");
+    private static String urlString = "http://shakespeare.mit.edu/Poetry/sonnet.";
     private static String urlStringXML;
 
     public static String getDataXML(){
@@ -38,6 +38,11 @@ public class Connection {
     }
 
     public static void setRomanNumberToUrlStringXML(String sonnetRomanNumber) {
-        urlStringXML = urlString.append(sonnetRomanNumber).append(".html").toString();
+        StringBuilder builder = new StringBuilder(urlString);
+        urlStringXML = builder.append(sonnetRomanNumber).append(".html").toString();
+    }
+
+    public static String getUrlStringXML() {
+        return urlStringXML;
     }
 }
