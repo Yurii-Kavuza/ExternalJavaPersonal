@@ -36,15 +36,6 @@ public class ConsoleController {
         FillerDataIntoHashMap.setResultedHashMap(searchedWord);
     }
 
-    private void printResult(){
-        System.out.println(searchedWord);
-        FillerDataIntoHashMap.getResultedHashMap().forEach((k,v)->{
-            StringBuilder builder = new StringBuilder();
-            builder.append(k).append("\t").append(v);
-            System.out.println(builder.toString());
-        });
-    }
-
     private void chooseAction() throws IOException {
         BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
         while (true){
@@ -63,5 +54,15 @@ public class ConsoleController {
 
     private void inputWord(String line){
         searchedWord=line.toLowerCase();
+    }
+
+    private void printResult(){
+        System.out.println(searchedWord);
+        System.out.println(FillerDataIntoHashMap.getResultedHashMap().size());
+        FillerDataIntoHashMap.getResultedHashMap().forEach((k,v)->{
+            StringBuilder builder = new StringBuilder();
+            builder.append(k).append("\t").append(v);
+            System.out.println(builder.toString());
+        });
     }
 }

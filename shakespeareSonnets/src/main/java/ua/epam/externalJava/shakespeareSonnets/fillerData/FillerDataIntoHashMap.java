@@ -16,7 +16,7 @@ public class FillerDataIntoHashMap {
     private static HashMap<String, Integer> resultedHashMap;
 
     public static void fillSourceMaps(){
-        for (int i = 100; i < 155; i++) {
+        for (int i = 1; i < 155; i++) {
             Connection.setRomanNumberToUrlStringXML(ConvertorDecimalNumToRoman.getRomanNum(i));
             setInnerHashMap(ParserXML.getHTMLBody());
             setOuterHashMap(Connection.getUrlStringXML(),getInnerHashMap());
