@@ -6,71 +6,85 @@ public class Port {
     private String name;
     private int containersCapacity;
     private int containersQuantity;
-    private boolean isWorked=false;
-    private boolean isFree=false;
-    private HashMap<String,Mooring> moorings = new HashMap<>();
+    private boolean isWorked;
+    private boolean isFree;
+    private HashMap<Integer,Mooring> moorings = new HashMap<>();
 
     public Port() {
     }
 
-    public Port( String name,boolean isWorked) {
+    public Port( String name, int containersCapacity) {
         this.name = name;
-        this.isWorked = isWorked;
+        this.containersCapacity = containersCapacity;
     }
 
     class Mooring {
-        private MooringInfo mooringInfo = new MooringInfo();
-        private MooringCondition mooringCondition = new MooringCondition();
+        private int number;
+        private boolean isWorked;
+        private boolean isFree;
+
 
         public Mooring() {
+            setNumber(getMooringsQuantity()+1);
+            setWorked(true);
+            setFree(true);
         }
 
-        public Mooring(String name, int containersCapacity,boolean isWorked) {
-            if (!isExisted(name)) {
-                mooringInfo.setName(name);
-                mooringInfo.setContainersCapacity(containersCapacity);
-                mooringCondition.setWorked(isWorked);
-                if (isWorked) mooringCondition.setFree(true);
-            } else {
-                StringBuilder str = new StringBuilder("The mooring with name ").
-                        append(name).append(" already exist.");
-                System.out.println(str.toString());
-            }
-
+        private int getMooringsQuantity(){
+            return moorings.size();
         }
 
-        private boolean isExisted(String name) {
-            return moorings.containsKey(name);
+        public int getNumber() {
+            return number;
         }
 
-        public MooringCondition getMooringCondition() {
-            return mooringCondition;
+        public void setNumber(int number) {
+            this.number = number;
         }
 
-        public MooringInfo getMooringInfo() {
-            return mooringInfo;
+        public boolean isWorked() {
+            return isWorked;
+        }
+
+        public void setWorked(boolean worked) {
+            isWorked = worked;
+        }
+
+        public boolean isFree() {
+            return isFree;
+        }
+
+        public void setFree(boolean free) {
+            isFree = free;
         }
 
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
             builder.append("Mooring ");
-            builder.append(mooringInfo.getName());
-            builder.append(" can contain ");
-            builder.append(mooringInfo.getContainersCapacity());
-            builder.append(". Now it contains ");
-            builder.append(mooringInfo.getContainersQuantity());
-            builder.append(" containers");
+            builder.append(getNumber());
+            if(isWorked()){
+                builder.append(" is working now. ");
+                if (isFree()){
+                    builder.append("It is free now.");
+                }else {
+                    builder.append("But it is busy now.");
+                }
+            }else {
+                builder.append(" is not working now.");
+            }
             return builder.toString();
         }
     }
 
-    public HashMap<String, Mooring> getMoorings() {
+    public HashMap<Integer, Mooring> getMoorings() {
         return moorings;
     }
 
     public void addMoorings(Mooring mooring) {
-        moorings.put(mooring.getMooringInfo().getName(), mooring);
+        moorings.put(mooring.getNumber(), mooring);
+        this.setWorked(true);
+        this.setFree(true);
     }
 
     public String getName() {
@@ -111,5 +125,17 @@ public class Port {
 
     public void setFree(boolean free) {
         isFree = free;
+    }
+
+    @Override
+    public String toString() {
+        return "Port{" +
+                "name='" + name + '\'' +
+                ", containersCapacity=" + containersCapacity +
+                ", containersQuantity=" + containersQuantity +
+                ", isWorked=" + isWorked +
+                ", isFree=" + isFree +
+                ", moorings=" + moorings +
+                '}';
     }
 }
