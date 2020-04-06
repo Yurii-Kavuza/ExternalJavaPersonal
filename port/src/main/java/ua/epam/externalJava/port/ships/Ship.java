@@ -7,10 +7,12 @@ public class Ship implements Runnable {
     private int containersCapacity;
     private int containersQuantity;
     private Port port;
+    private boolean isReady;
 
     public Ship(String name, int containersCapacity) {
         this.name = name;
         this.containersCapacity = containersCapacity;
+        isReady=true;
     }
 
     public String getName() {
@@ -49,12 +51,12 @@ public class Ship implements Runnable {
         return containersQuantity;
     }
 
-    public boolean isFull() {
-        return getContainersCapacity() == getContainersQuantity();
+    public boolean isReady() {
+        return isReady;
     }
 
-    public boolean isEmpty() {
-        return getContainersCapacity() == getFreeCapacity();
+    public void setReady(boolean ready) {
+        isReady = ready;
     }
 
     public void swim() {
@@ -68,13 +70,15 @@ public class Ship implements Runnable {
     @Override
     public void run() {
         while (true) {
-            if (port.getFreeCapacity() >= this.getContainersQuantity()) {
-                port.get(this);
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if(isReady){
+                if (port.getFreeCapacity() >= this.getContainersQuantity()) {
+                    port.add(this);
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
