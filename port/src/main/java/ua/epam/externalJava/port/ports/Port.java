@@ -4,11 +4,12 @@ import ua.epam.externalJava.port.ships.Ship;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Port{
     private String name;
     private int containersCapacity;
-    private volatile int containersQuantity;
+    private AtomicInteger containersQuantity = new AtomicInteger(0);
     private boolean isFree;
     private int numberOfFreeMooring;
     private HashMap<Integer, Ship> moorings = new HashMap<>();
@@ -132,11 +133,11 @@ public class Port{
     }
 
     public void load(int containers) {
-        containersQuantity += containers;
+        containersQuantity.addAndGet(containers);
     }
 
     public void unload(int containers) {
-        containersQuantity -= containers;
+        containersQuantity.addAndGet(-containers);
     }
 
     public int getContainersCapacity() {
@@ -148,11 +149,11 @@ public class Port{
     }
 
     public int getContainersQuantity() {
-        return containersQuantity;
+        return containersQuantity.get();
     }
 
     public void setContainersQuantity(int containersQuantity) {
-        this.containersQuantity = containersQuantity;
+        this.containersQuantity.lazySet(containersQuantity);
     }
 
     public int getFreeCapacity() {
