@@ -27,11 +27,11 @@ public class ProgramProducerConsumer {
         Ship ship3 = new Ship("Berdiansk",200);
         ship3.load(190);
         ship3.setPort(portOdesa);
-        Ship ship11 = new Ship("Kherson2",300);
-        ship11.load(300);
+        Ship ship11 = new Ship("Kherson2",600);
+        ship11.load(600);
         ship11.setPort(portOdesa);
-        Ship ship12 = new Ship("Zaporizhja2",500);
-        ship12.load(450);
+        Ship ship12 = new Ship("Zaporizhja2",1200);
+        ship12.load(1200);
         ship12.setPort(portOdesa);
         Ship ship13 = new Ship("Berdiansk2",200);
         ship13.load(190);
@@ -47,7 +47,7 @@ public class ProgramProducerConsumer {
 //        new Thread(ship12).start();
 //        new Thread(ship13).start();
 
-//        ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
         ExecutorService service = Executors.newCachedThreadPool();
 
         service.execute(mooring1);
