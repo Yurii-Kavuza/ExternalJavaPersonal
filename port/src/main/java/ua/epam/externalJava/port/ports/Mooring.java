@@ -1,5 +1,6 @@
 package ua.epam.externalJava.port.ports;
 
+import ua.epam.externalJava.port.ports.Port;
 import ua.epam.externalJava.port.ships.Ship;
 import java.util.Random;
 
