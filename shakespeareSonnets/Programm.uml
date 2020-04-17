@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ua.epam.externalJava.shakespeareSonnets.Programm</OriginalElement>
+  <nodes>
+    <node x="132.0" y="79.0">ua.epam.externalJava.shakespeareSonnets.convertor.ConvertorDecimalNumToRoman</node>
+    <node x="28.964285714285708" y="0.0">ua.epam.externalJava.shakespeareSonnets.connection.Connection</node>
+    <node x="40.46428571428571" y="237.0">ua.epam.externalJava.shakespeareSonnets.controller.ConsoleController</node>
+    <node x="26.464285714285708" y="158.0">ua.epam.externalJava.shakespeareSonnets.fillerData.FillerDataIntoHashMap</node>
+    <node x="0.0" y="79.0">ua.epam.externalJava.shakespeareSonnets.parser.ParserXML</node>
+    <node x="69.49999999999999" y="316.0">ua.epam.externalJava.shakespeareSonnets.Programm</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.fillerData.FillerDataIntoHashMap" target="ua.epam.externalJava.shakespeareSonnets.connection.Connection">
+      <point x="0.0" y="-14.5" />
+      <point x="123.96428571428571" y="133.0" />
+      <point x="121.49999999999999" y="133.0" />
+      <point x="121.49999999999999" y="54.0" />
+      <point x="117.46428571428571" y="54.0" />
+      <point x="29.5" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.controller.ConsoleController" target="ua.epam.externalJava.shakespeareSonnets.fillerData.FillerDataIntoHashMap">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.fillerData.FillerDataIntoHashMap" target="ua.epam.externalJava.shakespeareSonnets.convertor.ConvertorDecimalNumToRoman">
+      <point x="65.0" y="-14.5" />
+      <point x="188.96428571428572" y="133.0" />
+      <point x="247.0" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.Programm" target="ua.epam.externalJava.shakespeareSonnets.controller.ConsoleController">
+      <point x="26.0" y="-14.5" />
+      <point x="147.5" y="291.0" />
+      <point x="165.71428571428572" y="291.0" />
+      <point x="41.75" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.parser.ParserXML" target="ua.epam.externalJava.shakespeareSonnets.connection.Connection">
+      <point x="0.0" y="-14.5" />
+      <point x="55.5" y="54.0" />
+      <point x="58.46428571428571" y="54.0" />
+      <point x="-29.5" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.shakespeareSonnets.fillerData.FillerDataIntoHashMap" target="ua.epam.externalJava.shakespeareSonnets.parser.ParserXML">
+      <point x="-65.0" y="-14.5" />
+      <point x="58.96428571428571" y="133.0" />
+      <point x="55.5" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="181.0" y="172.5" />
+  <SelectedNodes>
+    <node>ua.epam.externalJava.shakespeareSonnets.Programm</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
