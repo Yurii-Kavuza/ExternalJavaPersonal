@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ua.epam.externalJava.weatherStation.subject</OriginalElement>
+  <nodes>
+    <node x="186.70208333333335" y="287.0">ua.epam.externalJava.weatherStation.observer.CurrentConditionsDisplay</node>
+    <node x="286.50000000000006" y="168.0">ua.epam.externalJava.weatherStation.parser.ParserJSON</node>
+    <node x="10.5" y="168.0">ua.epam.externalJava.weatherStation.parser.ParserXML</node>
+    <node x="763.0562500000001" y="168.0">ua.epam.externalJava.weatherStation.observer.DisplayElement</node>
+    <node x="477.68333333333334" y="168.0">ua.epam.externalJava.weatherStation.subject.WeatherData</node>
+    <node x="185.16041666666666" y="79.0">ua.epam.externalJava.weatherStation.connection.Connection</node>
+    <node x="653.7500000000001" y="0.0">ua.epam.externalJava.weatherStation.observer.Observer</node>
+    <node x="806.5166666666667" y="287.0">ua.epam.externalJava.weatherStation.observer.ForecastDisplay</node>
+    <node x="396.52291666666673" y="79.0">ua.epam.externalJava.weatherStation.subject.WeatherCondition</node>
+    <node x="626.5166666666667" y="287.0">ua.epam.externalJava.weatherStation.observer.StatisticDisplay</node>
+    <node x="141.50000000000006" y="168.0">ua.epam.externalJava.weatherStation.parser.ParserJSON2</node>
+    <node x="576.5229166666668" y="79.0">ua.epam.externalJava.weatherStation.subject.Subject</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ua.epam.externalJava.weatherStation.subject.WeatherData" target="ua.epam.externalJava.weatherStation.connection.Connection">
+      <point x="-52.083333333333314" y="-14.5" />
+      <point x="488.1" y="138.0" />
+      <point x="288.41041666666666" y="138.0" />
+      <point x="44.25" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.parser.ParserXML" target="ua.epam.externalJava.weatherStation.connection.Connection">
+      <point x="0.0" y="-14.5" />
+      <point x="66.0" y="138.0" />
+      <point x="199.91041666666666" y="138.0" />
+      <point x="-44.25" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.CurrentConditionsDisplay" target="ua.epam.externalJava.weatherStation.observer.Observer">
+      <point x="-81.0" y="-14.5" />
+      <point x="213.70208333333335" y="267.0" />
+      <point x="0.0" y="267.0" />
+      <point x="0.0" y="49.0" />
+      <point x="662.4166666666667" y="49.0" />
+      <point x="-43.333333333333314" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.subject.WeatherData" target="ua.epam.externalJava.weatherStation.subject.WeatherCondition">
+      <point x="-10.416666666666686" y="-14.5" />
+      <point x="529.7666666666667" y="148.0" />
+      <point x="516.5229166666668" y="148.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.subject.WeatherData" target="ua.epam.externalJava.weatherStation.observer.Observer">
+      <point x="52.083333333333314" y="-14.5" />
+      <point x="592.2666666666667" y="148.0" />
+      <point x="703.6" y="148.0" />
+      <point x="703.6" y="59.0" />
+      <point x="714.4166666666667" y="59.0" />
+      <point x="8.666666666666686" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.ForecastDisplay" target="ua.epam.externalJava.weatherStation.subject.WeatherData">
+      <point x="-19.125" y="-14.5" />
+      <point x="863.8916666666667" y="217.0" />
+      <point x="592.2666666666667" y="217.0" />
+      <point x="52.083333333333314" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.StatisticDisplay" target="ua.epam.externalJava.weatherStation.observer.Observer">
+      <point x="20.0" y="-14.5" />
+      <point x="726.5166666666667" y="59.0" />
+      <point x="731.7500000000001" y="59.0" />
+      <point x="26.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.parser.ParserJSON2" target="ua.epam.externalJava.weatherStation.connection.Connection">
+      <point x="-5.6843418860808015E-14" y="-14.5" />
+      <point x="204.0" y="148.0" />
+      <point x="229.41041666666666" y="148.0" />
+      <point x="-14.75" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.parser.ParserJSON" target="ua.epam.externalJava.weatherStation.connection.Connection">
+      <point x="0.0" y="-14.5" />
+      <point x="345.50000000000006" y="148.0" />
+      <point x="258.91041666666666" y="148.0" />
+      <point x="14.75" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.ForecastDisplay" target="ua.epam.externalJava.weatherStation.observer.Observer">
+      <point x="57.375" y="-14.5" />
+      <point x="940.3916666666667" y="267.0" />
+      <point x="936.975" y="267.0" />
+      <point x="936.975" y="59.0" />
+      <point x="749.0833333333335" y="59.0" />
+      <point x="43.333333333333314" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.StatisticDisplay" target="ua.epam.externalJava.weatherStation.subject.WeatherData">
+      <point x="-60.0" y="-14.5" />
+      <point x="646.5166666666667" y="247.0" />
+      <point x="529.7666666666667" y="247.0" />
+      <point x="-10.416666666666686" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.subject.Subject" target="ua.epam.externalJava.weatherStation.observer.Observer">
+      <point x="0.0" y="-14.5" />
+      <point x="625.0229166666668" y="59.0" />
+      <point x="679.7500000000001" y="59.0" />
+      <point x="-26.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.StatisticDisplay" target="ua.epam.externalJava.weatherStation.observer.DisplayElement">
+      <point x="60.0" y="-14.5" />
+      <point x="766.5166666666667" y="267.0" />
+      <point x="836.0562500000001" y="267.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.ForecastDisplay" target="ua.epam.externalJava.weatherStation.observer.DisplayElement">
+      <point x="19.125" y="-14.5" />
+      <point x="902.1416666666667" y="267.0" />
+      <point x="884.7229166666666" y="267.0" />
+      <point x="48.66666666666663" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.subject.WeatherData" target="ua.epam.externalJava.weatherStation.subject.Subject">
+      <point x="10.416666666666686" y="-14.5" />
+      <point x="550.6" y="128.0" />
+      <point x="625.0229166666668" y="128.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.CurrentConditionsDisplay" target="ua.epam.externalJava.weatherStation.observer.DisplayElement">
+      <point x="81.0" y="-14.5" />
+      <point x="375.70208333333335" y="257.0" />
+      <point x="787.3895833333333" y="257.0" />
+      <point x="-48.66666666666663" y="14.5" />
+    </edge>
+    <edge source="ua.epam.externalJava.weatherStation.observer.CurrentConditionsDisplay" target="ua.epam.externalJava.weatherStation.subject.WeatherData">
+      <point x="-27.0" y="-14.5" />
+      <point x="267.70208333333335" y="237.0" />
+      <point x="488.1" y="237.0" />
+      <point x="-52.083333333333314" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="481.5" y="119.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
