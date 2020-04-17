@@ -37,14 +37,29 @@ public class ProgramProducerConsumer {
         ship13.load(190);
         ship13.setPort(portOdesa);
 
-        new Thread(mooring1).start();
-        new Thread(mooring2).start();
-        new Thread(mooring3).start();
-        new Thread(ship1).start();
-        new Thread(ship2).start();
-        new Thread(ship3).start();
-        new Thread(ship11).start();
-        new Thread(ship12).start();
-        new Thread(ship13).start();
+//        new Thread(mooring1).start();
+//        new Thread(mooring2).start();
+//        new Thread(mooring3).start();
+//        new Thread(ship1).start();
+//        new Thread(ship2).start();
+//        new Thread(ship3).start();
+//        new Thread(ship11).start();
+//        new Thread(ship12).start();
+//        new Thread(ship13).start();
+
+//        ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        ExecutorService service = Executors.newCachedThreadPool();
+
+        service.execute(mooring1);
+        service.execute(mooring2);
+        service.execute(mooring3);
+        service.execute(ship1);
+        service.execute(ship2);
+        service.execute(ship3);
+        service.execute(ship11);
+        service.execute(ship12);
+        service.execute(ship13);
+
+        service.shutdown();
     }
 }
